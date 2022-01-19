@@ -11,7 +11,7 @@ jobs:
       - name: Find and Replace Base64 Encoded PAT in .npmrc # no hard coded secret in a file ! lets replace it from secrets
         uses: jacobtomlinson/gha-find-replace@v2
         with:
-          find: "BASE64_ENCODED_PERSONAL_ACCESS_TOKEN"
+          find: "AZURE_ARTIFACTS_PAT_B64"
           replace: ${{ secrets.AZURE_ARTIFACTS_PAT_B64 }}
           regex: false
 
