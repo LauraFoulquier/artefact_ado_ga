@@ -1,0 +1,22 @@
+name: "Testing deploying artefact"
+
+on: push
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "BASE64_ENCODED_PERSONAL_ACCESS_TOKEN"
+          replace: { secrets.AZURE_ARTIFACTS_PAT }
+          regex: false
+      
+            
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: npm publish
