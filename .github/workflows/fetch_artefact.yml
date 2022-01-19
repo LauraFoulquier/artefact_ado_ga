@@ -1,9 +1,9 @@
-name: "Testing deploying artefact"
+name: fetch artefact
 
 on: workflow_dispatch
 
 jobs:
-  publish:
+  installLibraryFromADO:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -20,6 +20,4 @@ jobs:
         with:
           node-version: 10
       
-       # run a versioning update command
-
-      - run: npm publish # deploy directly to Azure DevOps based on .npmrc file
+      - run: npm install artefact_ado_workflow
